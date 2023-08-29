@@ -1,7 +1,7 @@
 {
-	"replace": false,
-	"values": [
-		"blockofsky:sky_block",
-		"blockofsky:void_block"
-	]
+  "replace": false,
+  "values": [
+    "blockofsky:sky_block",
+    "blockofsky:void_block"
+  ]
 }
