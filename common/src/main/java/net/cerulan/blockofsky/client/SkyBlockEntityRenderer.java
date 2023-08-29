@@ -11,9 +11,6 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.Direction;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
-@ParametersAreNonnullByDefault
 public class SkyBlockEntityRenderer implements BlockEntityRenderer<SkyBlockEntity> {
     public SkyBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
     }

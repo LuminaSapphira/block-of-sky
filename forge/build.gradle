@@ -49,12 +49,14 @@ shadowJar {
 
     configurations = [project.configurations.shadowCommon]
     classifier "dev-shadow"
+    archiveAppendix = "forge-${rootProject.minecraft_version}"
 }
 
 remapJar {
     input.set shadowJar.archiveFile
     dependsOn shadowJar
     classifier null
+    archiveAppendix = "forge-${rootProject.minecraft_version}"
 }
 
 jar {
@@ -65,6 +67,7 @@ sourcesJar {
     def commonSources = project(":common").sourcesJar
     dependsOn commonSources
     from commonSources.archiveFile.map { zipTree(it) }
+    archiveAppendix = "forge-${rootProject.minecraft_version}"
 }
 
 components.java {

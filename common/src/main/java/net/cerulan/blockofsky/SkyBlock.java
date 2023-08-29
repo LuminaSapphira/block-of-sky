@@ -14,12 +14,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.Material;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
-@ParametersAreNonnullByDefault
 public class SkyBlock extends BaseEntityBlock {
     public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
     protected SkyBlock() {
@@ -27,20 +22,17 @@ public class SkyBlock extends BaseEntityBlock {
         registerDefaultState(defaultBlockState().setValue(ACTIVE, true));
     }
 
-    @Nullable
     @Override
-    public BlockEntity newBlockEntity(@NotNull BlockPos blockPos, @NotNull BlockState blockState) {
+    public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
         return new SkyBlockEntity(SkyBlockEntity.SkyType.Overworld, blockPos, blockState);
     }
 
-    @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext ctx) {
         final boolean powered = ctx.getLevel().hasNeighborSignal(ctx.getClickedPos());
         return this.defaultBlockState().setValue(ACTIVE, !powered);
     }
 
-    @NotNull
     @Override
     @SuppressWarnings("deprecation")
     public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
@@ -83,7 +75,6 @@ public class SkyBlock extends BaseEntityBlock {
         return 0;
     }
 
-    @NotNull
     @Override
     public RenderShape getRenderShape(BlockState state) {
         return state.getValue(ACTIVE) ? RenderShape.INVISIBLE : RenderShape.MODEL;
@@ -97,7 +88,7 @@ public class SkyBlock extends BaseEntityBlock {
     public static class VoidBlock extends SkyBlock {
 
         @Override
-        public @Nullable BlockEntity newBlockEntity(@NotNull BlockPos blockPos, @NotNull BlockState blockState) {
+        public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
             return new SkyBlockEntity(SkyBlockEntity.SkyType.Void, blockPos, blockState);
         }
 

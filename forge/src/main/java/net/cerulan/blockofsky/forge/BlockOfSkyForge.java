@@ -1,5 +1,6 @@
 package net.cerulan.blockofsky.forge;
 
+import dev.architectury.platform.Platform;
 import dev.architectury.platform.forge.EventBuses;
 import net.cerulan.blockofsky.BlockOfSkyMod;
 import net.cerulan.blockofsky.client.BOSClient;
@@ -16,7 +17,9 @@ public class BlockOfSkyForge {
     public BlockOfSkyForge() {
         // Submit our event bus to let architectury register our content on the right time
         EventBuses.registerModEventBus(BlockOfSkyMod.MOD_ID, FMLJavaModLoadingContext.get().getModEventBus());
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientInit);
+        if (Platform.getEnv().isClient()) {
+            FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientInit);
+        }
         BlockOfSkyMod.init();
     }
 
