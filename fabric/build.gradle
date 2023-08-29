@@ -43,7 +43,6 @@ shadowJar {
     exclude "architectury.common.json"
 
     configurations = [project.configurations.shadowCommon]
-    classifier "dev-shadow"
     archiveAppendix = "fabric-${rootProject.minecraft_version}"
 }
 
@@ -51,13 +50,11 @@ remapJar {
     injectAccessWidener = true
     input.set shadowJar.archiveFile
     dependsOn shadowJar
-    classifier null
     archiveAppendix = "fabric-${rootProject.minecraft_version}"
 
 }
 
 jar {
-    classifier "dev"
 }
 
 sourcesJar {

@@ -48,19 +48,16 @@ shadowJar {
     exclude "architectury.common.json"
 
     configurations = [project.configurations.shadowCommon]
-    classifier "dev-shadow"
     archiveAppendix = "forge-${rootProject.minecraft_version}"
 }
 
 remapJar {
     input.set shadowJar.archiveFile
     dependsOn shadowJar
-    classifier null
     archiveAppendix = "forge-${rootProject.minecraft_version}"
 }
 
 jar {
-    classifier "dev"
 }
 
 sourcesJar {
