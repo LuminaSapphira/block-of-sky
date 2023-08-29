@@ -3,6 +3,9 @@
   "mixin": [
     "blockofsky-common.mixins.json"
   ],
+  "minecraft": {
+    "environment": "*"
+  },
   "quilt_loader": {
     "group": "${group}",
     "id": "blockofsky",
@@ -10,9 +13,9 @@
     "metadata": {
       "name": "Block of Sky",
       "description": "Adds a block to render the sky",
-      "authors": [
-        "CerulanLumina"
-      ],
+      "contributors": {
+        "CerulanLumina": "Owner"
+      },
       "contact": {
         "sources": "https://github.com/CerulanLumina/block-of-sky",
         "issues": "https://github.com/CerulanLumina/block-of-sky/issues"
@@ -21,7 +24,6 @@
       "icon": "icon.png"
     },
     "intermediate_mappings": "net.fabricmc:intermediary",
-    "environment": "*",
     "entrypoints": {
       "init": [
         "net.cerulan.blockofsky.quilt.BlockOfSkyQuilt"
@@ -41,11 +43,15 @@
       },
       {
         "id": "minecraft",
-        "version": ">=1.19.2"
+        "version": ">=1.20.1"
+      },
+      {
+        "id": "quilted_fabric_api",
+        "version": ">=7.1.2"
       },
       {
         "id": "architectury",
-        "version": ">=6.2.43"
+        "version": ">=9.1.12"
       }
     ]
   }

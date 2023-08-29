@@ -26,8 +26,12 @@ configurations {
     developmentForge.extendsFrom common
 }
 
+repositories {
+    maven { url "https://maven.neoforged.net/releases/" }
+}
+
 dependencies {
-    forge "net.minecraftforge:forge:${rootProject.forge_version}"
+    forge "net.neoforged:forge:${rootProject.neoforge_version}"
     // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
 
@@ -48,13 +52,13 @@ shadowJar {
     exclude "architectury.common.json"
 
     configurations = [project.configurations.shadowCommon]
-    archiveAppendix = "forge-${rootProject.minecraft_version}"
+    archiveAppendix = "neoforge-${rootProject.minecraft_version}"
 }
 
 remapJar {
     input.set shadowJar.archiveFile
     dependsOn shadowJar
-    archiveAppendix = "forge-${rootProject.minecraft_version}"
+    archiveAppendix = "neoforge-${rootProject.minecraft_version}"
 }
 
 jar {
@@ -64,7 +68,7 @@ sourcesJar {
     def commonSources = project(":common").sourcesJar
     dependsOn commonSources
     from commonSources.archiveFile.map { zipTree(it) }
-    archiveAppendix = "forge-${rootProject.minecraft_version}"
+    archiveAppendix = "neoforge-${rootProject.minecraft_version}"
 }
 
 components.java {

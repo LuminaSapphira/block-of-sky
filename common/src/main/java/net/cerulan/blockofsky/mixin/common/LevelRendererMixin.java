@@ -1,7 +1,7 @@
 package net.cerulan.blockofsky.mixin.common;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Matrix4f;
+import org.joml.Matrix4f;
 import net.cerulan.blockofsky.client.BOSClient;
 import net.cerulan.blockofsky.client.LevelRendererBOS;
 import net.minecraft.client.Camera;
